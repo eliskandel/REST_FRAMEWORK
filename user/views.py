@@ -3,7 +3,7 @@ from .models import User
 from .serializer import UserSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.generics import ListAPIView,CreateAPIView
+from rest_framework.generics import ListAPIView,CreateAPIView,UpdateAPIView,DestroyAPIView,RetrieveAPIView
 
 # Create your views here.
 # class UserViewList(APIView):
@@ -28,4 +28,15 @@ class UserViewList(ListAPIView):
     queryset=User.objects.all()
     serializer_class=UserSerializer
 class UserCreateView(CreateAPIView):
+    serializer_class=UserSerializer
+    
+class UserUpdateView(UpdateAPIView):
+    queryset=User.objects.all()
+    serializer_class=UserSerializer
+    
+class UserDeleteView(DestroyAPIView):
+    queryset=User.objects.all()
+    serializer_class=UserSerializer
+class UserRetrieveView(RetrieveAPIView):
+    queryset=User.objects.all()
     serializer_class=UserSerializer
